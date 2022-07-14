@@ -70,7 +70,7 @@ const Form = ({ setFormData }) => {
   const submitForm = (values) => {
 
     setFormData(values);
-    navigate('/tellimus-tehtud');
+
   };
   return (
     <>
@@ -98,7 +98,7 @@ const Form = ({ setFormData }) => {
               <form
                 name="tellimus"
                 method="post"
-                action="/kiri-saadetud/"
+                action="/tellimus-tehtud"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
