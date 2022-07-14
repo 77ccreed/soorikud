@@ -2,27 +2,10 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from 'yup'
 
-import parse from "date-fns/parse";
-
 //import Hero from "../components/Hero";
 
 
-
-
 const validationSchema = Yup.object().shape({
-  //date must be in the future
-  tellimuse_kättesaamise_aeg_kuupäev: Yup.date()
-    .transform(function (value, originalValue) {
-      if (this.isType(value)) {
-        return value;
-      }
-      const result = parse(originalValue, "dd.MM.yyyy", new Date());
-      return result;
-    })
-    .typeError("please enter a valid date")
-
-    .min("1969-11-13", "Date is too early")
-  ,
   nimi: Yup.string()
     .required('Nimi on kohustuslik')
     .min(3, 'Nimi on liiga lühike')
@@ -40,22 +23,10 @@ const validationSchema = Yup.object().shape({
   kogus: Yup.number().positive('Kogus peab olema positiivne').required('Kogus on kohustuslik')
     .min(3, 'Kogus on liiga väike')
     .max(10, 'Kogus on liiga suur'),
-  //tellimuse_kättesaamise_aeg_kuupäev: Yup.date().min(new Date(), 'Kättesaamise kuupäev peab olema tulevikus'),
-  // ,
-  //date must be in the future
-  //tellimuse_kättesaamise_aeg_kuupäev: Yup.date().required('Kättesaamise kuupäev on kohustuslik'),
-  //tellimuse_kättesaamise_aeg_kellaaeg: Yup.string().required('Kättesaamise kellaaeg on kohustuslik')
-
-
-
 })
 
 
-
-
 const Form = ({ setFormData }) => {
-
-
 
   const initialValues = {
     nimi: "",
@@ -65,12 +36,7 @@ const Form = ({ setFormData }) => {
     kuupäev: '',
     aeg: '12:00',
   };
-
-  const submitForm = (values) => {
-
-    setFormData(values);
-
-  };
+  ;
   return (
     <>
 
@@ -78,7 +44,6 @@ const Form = ({ setFormData }) => {
         initialValues={initialValues}
         //validate={validate}
         validationSchema={validationSchema}
-        onSubmit={submitForm}
       >
         {(formik) => {
           const {
