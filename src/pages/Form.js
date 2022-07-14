@@ -95,7 +95,25 @@ const Form = ({ setFormData }) => {
           return (
             <div className="container">
               <h1>Sõõrikute tellimine</h1>
-              <form onSubmit={handleSubmit}>
+              <form
+                name="kontakt"
+                method="post"
+                action="/kiri-saadetud/"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+              >
+
+                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+                <input type="hidden" name="form-name" value="kontakt" />
+                <div hidden>
+                  <label>
+                    Don’t fill this out:{' '}
+                    <input
+                      name="bot-field"
+                    />
+                  </label>
+                </div>
 
                 <div className="form-row">
                   <label htmlFor="nimi">Nimi</label>
