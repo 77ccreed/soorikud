@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from 'yup'
 
@@ -56,7 +55,7 @@ const validationSchema = Yup.object().shape({
 
 const Form = ({ setFormData }) => {
 
-  const navigate = useNavigate()
+
 
   const initialValues = {
     nimi: "",
