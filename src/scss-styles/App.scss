@@ -1,0 +1,161 @@
+//Variables
+@import './variables/colors.scss';
+@import './variables/breakpoints.scss';
+@import './variables/fontSizes.scss';
+@import './variables/margins.scss';
+@import './variables/paddings.scss';
+
+@import './component-styles/navbar.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Cera Pro', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.container {
+  text-align: center;
+  // min-height: 40vh;
+}
+
+.form-container {
+  width: auto;
+  max-width: 500px;
+  height: auto;
+  margin: $margin-xl auto;
+  padding: 2rem;
+  //border-radius: $border-radius;
+  background-color: $background;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  margin-top: $margin-xl;
+  margin-bottom: $margin-xl;
+}
+
+$primary-color: #1d3557;
+$error-color: #e63946;
+$bg-color: #f1faee;
+$text-color: #293241;
+$color-white: #fff;
+
+$border-radius: 4px;
+
+.container {
+  margin-top: 5rem;
+  padding: 3rem;
+  border-radius: $border-radius;
+
+  h1 {
+    font-size: 2rem;
+    color: $text-color;
+    margin-bottom: 2rem;
+  }
+
+  label,
+  input {
+    color: $text-color;
+  }
+
+  label {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    border: 2px solid rgba($primary-color, 0.8);
+    border-radius: $border-radius;
+    padding: 0.5rem 1rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+  }
+
+  button {
+    color: $color-white;
+    width: 100%;
+    font-size: 1.4rem;
+    background: $primary-color;
+    border-radius: $border-radius;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem 1.2rem;
+    margin-top: 0.5rem;
+
+    &:hover {
+      background: rgba($primary-color, 0.8);
+    }
+  }
+
+  .input-error {
+    border-color: $error-color;
+  }
+
+  .error {
+    color: $error-color;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+  }
+
+  .disabled-btn {
+    cursor: not-allowed;
+    background: rgba($primary-color, 0.8);
+  }
+}
+
+
+//hero
+.hero-container {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: 3rem;
+  text-align: left;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero-text {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+//Footer
+.footer-container {
+  background-color: $primary;
+  color: $text-white;
+  padding: 3rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 3rem;
+
+}
