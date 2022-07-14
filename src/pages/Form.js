@@ -96,7 +96,7 @@ const Form = ({ setFormData }) => {
             <div className="container">
               <h1>Sõõrikute tellimine</h1>
               <form
-                name="kontakt"
+                name="tellimus"
                 method="post"
                 action="/kiri-saadetud/"
                 data-netlify="true"
@@ -105,7 +105,7 @@ const Form = ({ setFormData }) => {
               >
 
                 {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-                <input type="hidden" name="form-name" value="kontakt" />
+                <input type="hidden" name="form-name" value="tellimus" />
                 <div hidden>
                   <label>
                     Don’t fill this out:{' '}
