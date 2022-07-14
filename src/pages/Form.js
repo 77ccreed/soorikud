@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from 'yup'
 
@@ -25,8 +26,16 @@ const validationSchema = Yup.object().shape({
     .max(10, 'Kogus on liiga suur'),
 })
 
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
 
 const Form = ({ setFormData }) => {
+
+  const navigate = useNavigate();
 
   const initialValues = {
     nimi: "",
@@ -36,7 +45,12 @@ const Form = ({ setFormData }) => {
     kuupäev: '',
     aeg: '12:00',
   };
-  ;
+
+  /*const submitForm = (values, actons) => {
+
+    setFormData(values);
+    navigate('/tellimus-tehtud');
+  };*/
   return (
     <>
 
@@ -44,12 +58,28 @@ const Form = ({ setFormData }) => {
         initialValues={initialValues}
         //validate={validate}
         validationSchema={validationSchema}
+        onSubmit={data => {
+          fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({
+              "form-name": "tellimus",
+              ...data,
+            }),
+          })
+            .then(() => {
+              alert("send")
+              navigate('/tellimus-tehtud');
+            })
+            .catch(error => alert(error))
+        }
+        }
       >
         {(formik) => {
           const {
             values,
             handleChange,
-            handleSubmit,
+
             errors,
             touched,
             handleBlur,
@@ -65,7 +95,7 @@ const Form = ({ setFormData }) => {
                 action="/tellimus-tehtud"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
-                onSubmit={handleSubmit}
+
               >
 
                 {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
