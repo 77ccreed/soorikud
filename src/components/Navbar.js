@@ -16,13 +16,13 @@ const Navbar = () => {
       <header className='navbar'>
         <NavLink to='/' className='navbar__title navbar__item'>Värsked Sõõrikud OÜ</NavLink>
         <nav className='navbar__items'>
-          <NavLink to='/meist' className='navbar__item' style={({ isActive }) =>
+          <NavLink to='/meist/' className='navbar__item' style={({ isActive }) =>
             isActive ? activeStyle : undefined
           }>Meist</NavLink>
-          <NavLink to='/partnerile' className='navbar__item' style={({ isActive }) =>
+          <NavLink to='/partnerile/' className='navbar__item' style={({ isActive }) =>
             isActive ? activeStyle : undefined
           }>Partnerile</NavLink>
-          <NavLink to='/kontakt' className='navbar__item' style={({ isActive }) =>
+          <NavLink to='/kontakt/' className='navbar__item' style={({ isActive }) =>
             isActive ? activeStyle : undefined
           }>Kontakt</NavLink>
         </nav>

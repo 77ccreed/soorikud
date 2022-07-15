@@ -31,11 +31,11 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Form setFormData={setFormData} />} />
-        <Route path="meist" element={<Meist />} />
-        <Route path="partnerile" element={<Koostööpartnerile />} />
-        <Route path="kontakt" element={<Kontakt />} />
-        <Route path="tellimus-tehtud" element={<TellimusTehtud formData={formData} />} />
-        <Route path="kiri-saadetud" element={<KiriSaadetud />} />
+        <Route path="meist/" element={<Meist />} />
+        <Route path="partnerile/" element={<Koostööpartnerile />} />
+        <Route path="kontakt/" element={<Kontakt />} />
+        <Route path="tellimus-tehtud/" element={<TellimusTehtud formData={formData} />} />
+        <Route path="kiri-saadetud/" element={<KiriSaadetud />} />
 
         <Route path="*" element={<MultiStepForm />} />
       </Routes>

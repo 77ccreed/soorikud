@@ -79,11 +79,20 @@ $border-radius: 4px;
   }
 
   input {
-    border: 2px solid rgba($primary-color, 0.8);
+    border: 2px solid rgba($primary, 0.8);
     border-radius: $border-radius;
     padding: 0.5rem 1rem;
     padding-left: 1rem;
     font-size: 1rem;
+  }
+
+  textarea {
+    border: 2px solid rgba($primary, 0.8);
+    border-radius: $border-radius;
+    padding: 0.5rem 1rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    height: 10rem;
   }
 
   .form-row {
@@ -93,10 +102,10 @@ $border-radius: 4px;
   }
 
   button {
-    color: $color-white;
+    color: $text-white;
     width: 100%;
     font-size: 1.4rem;
-    background: $primary-color;
+    background: $primary;
     border-radius: $border-radius;
     border: none;
     cursor: pointer;
@@ -104,13 +113,15 @@ $border-radius: 4px;
     margin-top: 0.5rem;
 
     &:hover {
-      background: rgba($primary-color, 0.8);
+      background: rgba($primary, 0.8);
     }
   }
 
   .input-error {
     border-color: $error-color;
   }
+
+
 
   .error {
     color: $error-color;

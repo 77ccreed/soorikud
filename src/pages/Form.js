@@ -59,6 +59,7 @@ const Form = ({ setFormData }) => {
         //validate={validate}
         validationSchema={validationSchema}
         onSubmit={data => {
+          console.log(data)
           fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -92,7 +93,6 @@ const Form = ({ setFormData }) => {
               <form
                 name="tellimus"
                 method="post"
-                action="/tellimus-tehtud"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
 
