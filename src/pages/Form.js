@@ -46,14 +46,9 @@ const Form = ({ setFormData }) => {
     aeg: '12:00',
   };
 
-  /* const submitForm = (values, actons) => {
- 
-     setFormData(values);
-     navigate('/tellimus-tehtud');
-   };*/
+
   return (
     <>
-
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -69,7 +64,7 @@ const Form = ({ setFormData }) => {
           })
             .then(() => {
               setFormData(data);
-              navigate('/tellimus-tehtud');
+              navigate('/tellimus-tehtud/');
             })
             .catch(error => alert(error))
         }
@@ -224,7 +219,6 @@ const Form = ({ setFormData }) => {
                   type="submit"
                   className={!(dirty && isValid) ? "disabled-btn" : ""}
                   disabled={!(dirty && isValid)}
-
                 >
                   Vormista tellimus
                 </button>

@@ -38,81 +38,151 @@ const Kontakt = () => {
   }
 
   const initialValues = {
-    name: "",
+    nimi: "",
+    telefon: "",
     email: "",
-    message: ""
+    sõnum: "",
   }
 
-  const onSubmit = (values, submitProps) => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "kontakt", ...values })
-    })
-      .then(() => {
-        submitProps.setSubmitting(false);
-        navigate('/kiri-saadetud/');
-      }
-      )
-      .catch(error => {
-        //console.log(error);
-        submitProps.setSubmitting(false);
-      }
-      )
-  }
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={onSubmit}
+      onSubmit={data => {
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({
+            "form-name": "kontakt",
+            ...data,
+          }),
+        })
+          .then(() => {
+            navigate('/kiri-saadetud/');
+          })
+          .catch(error => alert(error))
+      }
+      }
     >
-      {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
-        <form
-          name="kontakt"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          onSubmit={handleSubmit}
+      {(formik) => {
+        const {
+          values,
+          handleChange,
+          errors,
+          touched,
+          handleBlur,
+          isValid,
+          dirty
+        } = formik;
+        return (
+          <div className="container">
+            <h1>Saada sõnum</h1>
+            <form
+              name="kontakt"
+              method="post"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={formik.handleSubmit}
+            >
 
-        >
-          <label htmlFor="name">Nimi</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.name}
-          />
-          {errors.name && touched.name && <div>{errors.name}</div>}
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.email}
-          />
-          {errors.email && touched.email && <div>{errors.email}</div>}
-          <label htmlFor="message">Sõnum</label>
-          <textarea
-            id="message"
-            name="message"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.message}
-          />
-          {errors.message && touched.message && <div>{errors.message}</div>}
-          <button type="submit" disabled={isSubmitting}>
-            Kirjuta
-          </button>
+              {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+              <input type="hidden" name="form-name" value="kontakt" />
+              <div hidden>
+                <label>
+                  Don’t fill this out:{' '}
+                  <input
+                    name="bot-field"
+                  />
+                </label>
+              </div>
+
+              <div className="form-row">
+                <label htmlFor="nimi">Nimi</label>
+                <input
+                  type="text"
+                  name="nimi"
+                  id="nimi"
+                  value={values.nimi}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={
+                    errors.nimi && touched.nimi ? "input-error" : null
+                  }
+                />
+                {errors.nimi && touched.nimi && (
+                  <span className="error">{errors.nimi}</span>
+                )}
+              </div>
+
+              <div className="form-row">
+                <label htmlFor="telefon">Telefon</label>
+                <input
+                  type="tel"
+                  name="telefon"
+                  id="telefon"
+                  value={values.telefon}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={
+                    errors.telefon && touched.telefon ? "input-error" : null
+                  }
+                />
+                {errors.telefon && touched.telefon && (
+                  <span className="error">{errors.telefon}</span>
+                )}
+              </div>
+
+              <div className="form-row">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={
+                    errors.email && touched.email ? "input-error" : null
+                  }
+                />
+                {errors.email && touched.email && (
+                  <span className="error">{errors.email}</span>
+                )}
+              </div>
 
 
-        </form>
-      )}
+              <div className="form-row">
+                <label htmlFor="sõnum">Sõnum</label>
+                <textarea
+                  name="sõnum"
+                  id="sõnum"
+                  value={values.sõnum}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={
+                    errors.sõnum && touched.sõnum ? "input-error" : null
+                  }
+                />
+                {errors.sõnum && touched.sõnum && (
+                  <span className="error">{errors.sõnum}</span>
+                )}
+              </div>
 
+
+              <div className="form-row">
+                <button type="submit" disabled={!isValid || !dirty}>
+                  Saada sõnum
+                </button>
+              </div>
+
+
+
+
+            </form>
+          </div>
+        );
+      }}
     </Formik>
   )
 }
