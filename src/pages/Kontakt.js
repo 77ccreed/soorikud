@@ -7,9 +7,6 @@ import React from 'react'
 
 const Kontakt = () => {
 
-
-
-
   return (
     <form
       name="kontakt"
