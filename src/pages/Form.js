@@ -35,7 +35,7 @@ const encode = data => {
 
 const Form = ({ setFormData }) => {
 
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const initialValues = {
     nimi: "",
