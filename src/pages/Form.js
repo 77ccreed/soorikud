@@ -46,17 +46,16 @@ const Form = ({ setFormData }) => {
     aeg: '12:00',
   };
 
-  /*const submitForm = (values, actons) => {
-
-    setFormData(values);
-    navigate('/tellimus-tehtud');
-  };*/
+  /* const submitForm = (values, actons) => {
+ 
+     setFormData(values);
+     navigate('/tellimus-tehtud');
+   };*/
   return (
     <>
 
       <Formik
         initialValues={initialValues}
-        //validate={validate}
         validationSchema={validationSchema}
         onSubmit={data => {
           console.log(data)
@@ -69,7 +68,7 @@ const Form = ({ setFormData }) => {
             }),
           })
             .then(() => {
-              alert("send")
+              setFormData(data);
               navigate('/tellimus-tehtud');
             })
             .catch(error => alert(error))
@@ -80,7 +79,6 @@ const Form = ({ setFormData }) => {
           const {
             values,
             handleChange,
-
             errors,
             touched,
             handleBlur,
@@ -95,7 +93,7 @@ const Form = ({ setFormData }) => {
                 method="post"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
-
+                onSubmit={formik.handleSubmit}
               >
 
                 {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
