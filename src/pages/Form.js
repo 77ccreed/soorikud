@@ -47,15 +47,22 @@ const Form = ({ setFormData, formData }) => {
 
   const navigate = useNavigate();
 
+  const today = new Date();
+  const numberOfDaysToAdd = 1;
+  const date = today.setDate(today.getDate() + numberOfDaysToAdd);
+  const defaultValue = new Date(date).toISOString().split('T')[0]
+
+  console.log(defaultValue);
   const initialValues = {
     nimi: "",
     telefon: "",
     //email: "",
     kogus: 3,
-    kuupäev: '',
+    kuupäev: '18-07-2022',
     aeg: '12:00',
   };
 
+  console.log(initialValues.kuupäev)
 
   return (
     <div className="main-page-container">
@@ -195,9 +202,11 @@ const Form = ({ setFormData, formData }) => {
                     type="date"
                     name="kuupäev"
                     id="kuupäev"
-                    value={values.kuupäev}
+                    //value={values.kuupäev}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    //placeholder={values.kuupäev}
+                    defaultValue={defaultValue}
                     className={
                       errors.kuupäev && touched.kuupäev ? "input-error" : null
                     }
