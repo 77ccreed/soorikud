@@ -215,18 +215,19 @@ $padding-6xl: 7rem;
   }
 
   button {
-    color: white;
+    color: $primary-color;
     width: 100%;
     font-size: 1.4rem;
-    background: $tertiary-color;
+    background-color: $quaternary-color;
     border-radius: $border-radius;
-    border: none;
+    border: 1px solid $gray-line;
     cursor: pointer;
     padding: 0.4rem 1.2rem;
     margin-top: 0.5rem;
 
     &:hover {
-      background: $tertiary-color;
+      //background: $tertiary-color;
+      color: $secondary-color;
     }
   }
 
@@ -244,8 +245,14 @@ $padding-6xl: 7rem;
 
   .disabled-btn {
     cursor: not-allowed;
-    background: rgba($primary-color, 0.8);
+    background: $secondary-color;
+
+    &:hover {
+      background: $secondary-color;
+    }
   }
+
+
 }
 
 

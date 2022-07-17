@@ -33,11 +33,6 @@ const validationSchema = Yup.object().shape({
   //aeg on required, aeg on kohustuslik.
   //aeg on timepickeri kaudu valitud.
   //aeg ei tohi olla väiksem kui 12:00 ja ei tohi olla suurem kui 18:00
-  aeg: Yup.string().required('Aeg on kohustuslik')
-    .matches(/^[0-9]{2}:[0-9]{2}$/, 'Aeg peab olema formaatis HH:MM')
-    .min('12:00', 'Aeg on liiga väike')
-    .max('18:00', 'Aeg on liiga suur'),
-
 
 })
 
