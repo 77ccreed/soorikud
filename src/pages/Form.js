@@ -58,7 +58,7 @@ const Form = ({ setFormData, formData }) => {
     telefon: "",
     //email: "",
     kogus: 3,
-    kuupäev: '18-07-2022',
+    kuupäev: defaultValue,
     aeg: '12:00',
   };
 
@@ -202,11 +202,11 @@ const Form = ({ setFormData, formData }) => {
                     type="date"
                     name="kuupäev"
                     id="kuupäev"
-                    //value={values.kuupäev}
+                    value={values.kuupäev}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     //placeholder={values.kuupäev}
-                    defaultValue={defaultValue}
+                    //defaultValue={defaultValue}
                     className={
                       errors.kuupäev && touched.kuupäev ? "input-error" : null
                     }
