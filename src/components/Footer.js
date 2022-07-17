@@ -1,5 +1,5 @@
 import React from 'react'
-import Facebook from '../img/SVG/facebook-f-brands.svg'
+//import Facebook from '../img/SVG/facebook-f-brands.svg'
 
 const Footer = () => {
   return (
