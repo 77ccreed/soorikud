@@ -30,7 +30,7 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route path="/" element={<Form setFormData={setFormData} />} />
+        <Route path="/" element={<Form setFormData={setFormData} formData={formData} />} />
         <Route path="meist/" element={<Meist />} />
         <Route path="teenusetingimused/" element={<Teenusetingimused />} />
         <Route path="partnerile/" element={<Koostööpartnerile />} />

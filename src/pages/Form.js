@@ -16,11 +16,11 @@ const validationSchema = Yup.object().shape({
     .min(5, 'Telefoni number on liiga lühike')
     .max(20, 'Telefoni number on liiga pikk')
     .matches(/^[0-9+ ]+$/, 'Telefoni number peab sisaldama ainult numbreid'),
-  email: Yup.string()
+  /*email: Yup.string()
     .email('Email ei ole korrektne')
     .required('Email on kohustuslik')
     .max(30, 'Email on liiga pikk')
-  ,
+  ,*/
   kogus: Yup.number().positive('Kogus peab olema positiivne').required('Kogus on kohustuslik')
     .min(3, 'Kogus on liiga väike')
     .max(10, 'Kogus on liiga suur'),
@@ -43,14 +43,14 @@ const encode = data => {
 }
 
 
-const Form = ({ setFormData }) => {
+const Form = ({ setFormData, formData }) => {
 
   const navigate = useNavigate();
 
   const initialValues = {
     nimi: "",
     telefon: "",
-    email: "",
+    //email: "",
     kogus: 3,
     kuupäev: '',
     aeg: '12:00',
@@ -58,7 +58,7 @@ const Form = ({ setFormData }) => {
 
 
   return (
-    <>
+    <div className="main-page-container">
       <Hero />
       <Formik
         initialValues={initialValues}
@@ -94,6 +94,7 @@ const Form = ({ setFormData }) => {
           return (
             <div className="container">
               <h1>Sõõrikute tellimine</h1>
+              <p>Täida kõik väljad.</p>
               <form
                 name="tellimus"
                 method="post"
@@ -149,7 +150,7 @@ const Form = ({ setFormData }) => {
                   )}
                 </div>
 
-                <div className="form-row">
+                {/*<div className="form-row">
                   <label htmlFor="email">Email</label>
                   <input
                     type="email"
@@ -165,7 +166,7 @@ const Form = ({ setFormData }) => {
                   {errors.email && touched.email && (
                     <span className="error">{errors.email}</span>
                   )}
-                </div>
+                </div>*/}
 
                 <div className="form-row">
                   <label htmlFor="kogus">Kogus (kg)</label>
@@ -226,6 +227,13 @@ const Form = ({ setFormData }) => {
                   )}
                 </div>
 
+                <div className="form-row">
+                  <h2>Tellimuse andmed</h2>
+                  <p>
+                    {JSON.stringify(values, null, 2)}
+                  </p>
+                </div>
+
 
 
                 <button
@@ -240,7 +248,7 @@ const Form = ({ setFormData }) => {
           );
         }}
       </Formik>
-    </>
+    </div>
   );
 };
 

@@ -178,6 +178,12 @@ $padding-6xl: 7rem;
   h1 {
     font-size: 2rem;
     color: $quinary-color;
+    //margin-bottom: 2rem;
+  }
+
+  p {
+    //font-size: 1.25rem;
+    color: $text-color;
     margin-bottom: 2rem;
   }
 
@@ -253,10 +259,31 @@ $padding-6xl: 7rem;
   }
 
 
+
+  @media screen and (min-width: $breakpoint-md) {
+    form {
+      grid-template-columns: 1fr 1fr 1fr;
+      background-color: $success-color;
+    }
+  }
+
+}
+
+//main page
+.main-page-container {
+  display: grid;
+  grid-template-columns: 1fr;
+
+
+  @media screen and (min-width: $breakpoint-md) {
+    grid-template-columns: 1fr 1fr;
+  }
+
 }
 
 
 //hero
+
 .hero-container {
   //background-color: $tertiary-color;
   color: $quinary-color;
@@ -274,6 +301,10 @@ $padding-6xl: 7rem;
   width: 100vw;
   //height: 80vh;
   margin: auto;
+
+  @media screen and (min-width: $breakpoint-md) {
+    width: 100%;
+  }
 
 }
 
