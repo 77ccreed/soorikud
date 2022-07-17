@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from 'yup'
 
-//import Hero from "../components/Hero";
+import Hero from "../components/Hero";
 
 
 const validationSchema = Yup.object().shape({
@@ -14,8 +14,8 @@ const validationSchema = Yup.object().shape({
   telefon: Yup.string()
     .required('Telefon on kohustuslik')
     .min(5, 'Telefoni number on liiga lühike')
-    .max(15, 'Telefoni number on liiga pikk')
-    .matches(/^[0-9]+$/, 'Telefoni number peab sisaldama ainult numbreid'),
+    .max(20, 'Telefoni number on liiga pikk')
+    .matches(/^[0-9+ ]+$/, 'Telefoni number peab sisaldama ainult numbreid'),
   email: Yup.string()
     .email('Email ei ole korrektne')
     .required('Email on kohustuslik')
@@ -24,6 +24,21 @@ const validationSchema = Yup.object().shape({
   kogus: Yup.number().positive('Kogus peab olema positiivne').required('Kogus on kohustuslik')
     .min(3, 'Kogus on liiga väike')
     .max(10, 'Kogus on liiga suur'),
+  //kuupäev is required, kuupäev on kohustuslik. 
+  //kuupäev peab olema tulevikus, kuid mitte kaugemal kui 1 aasta. 
+  //kuupäev ei tohi olla tänane.
+  //kuupäev ei või olla minevikus. 
+  //kuupäev on datepickeri kaudu valitud. 
+  kuupäev: Yup.date().required('Kuupäev on kohustuslik').min(new Date(new Date().setDate(new Date().getDate())), 'Kuupäev ei tohi olla minevikus või tänane').max(new Date(new Date().setFullYear(new Date().getFullYear() + 1)), 'Kuupäev on liiga kaugel tulevikus'),
+  //aeg on required, aeg on kohustuslik.
+  //aeg on timepickeri kaudu valitud.
+  //aeg ei tohi olla väiksem kui 12:00 ja ei tohi olla suurem kui 18:00
+  aeg: Yup.string().required('Aeg on kohustuslik')
+    .matches(/^[0-9]{2}:[0-9]{2}$/, 'Aeg peab olema formaatis HH:MM')
+    .min('12:00', 'Aeg on liiga väike')
+    .max('18:00', 'Aeg on liiga suur'),
+
+
 })
 
 const encode = data => {
@@ -49,6 +64,7 @@ const Form = ({ setFormData }) => {
 
   return (
     <>
+      <Hero />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -201,6 +217,8 @@ const Form = ({ setFormData }) => {
                     type="time"
                     name="aeg"
                     id="aeg"
+                    min="09:00"
+                    max="18:00"
                     value={values.aeg}
                     onChange={handleChange}
                     onBlur={handleBlur}

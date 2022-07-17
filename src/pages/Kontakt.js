@@ -16,8 +16,8 @@ const Kontakt = () => {
     telefon: Yup.string()
       .required('Telefon on kohustuslik')
       .min(5, 'Telefoni number on liiga lühike')
-      .max(15, 'Telefoni number on liiga pikk')
-      .matches(/^[0-9]+$/, 'Telefoni number peab sisaldama ainult numbreid'),
+      .max(20, 'Telefoni number on liiga pikk')
+      .matches(/^[0-9+ ]+$/, 'Telefoni number peab sisaldama ainult numbreid'),
     email: Yup.string()
       .email('Email ei ole korrektne')
       .required('Email on kohustuslik')

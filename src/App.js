@@ -7,6 +7,7 @@ import Layout from './components/Layout';
 
 import MultiStepForm from './pages/MultiStepForm';
 import Meist from './pages/Meist';
+import Teenusetingimused from './pages/Teenusetingimused';
 import Kontakt from './pages/Kontakt';
 import Koostööpartnerile from './pages/Koostööpartnerile';
 import TellimusTehtud from './pages/TellimusTehtud';
@@ -25,13 +26,13 @@ function App() {
     tellimuse_kättesaamise_aeg_kellaaeg: '',
   })
 
-  console.log(formData)
 
   return (
     <Layout>
       <Routes>
         <Route path="/" element={<Form setFormData={setFormData} />} />
         <Route path="meist/" element={<Meist />} />
+        <Route path="teenusetingimused/" element={<Teenusetingimused />} />
         <Route path="partnerile/" element={<Koostööpartnerile />} />
         <Route path="kontakt/" element={<Kontakt />} />
         <Route path="tellimus-tehtud/" element={<TellimusTehtud formData={formData} />} />

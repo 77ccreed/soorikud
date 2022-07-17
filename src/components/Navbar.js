@@ -6,22 +6,21 @@ import {
 const Navbar = () => {
 
   let activeStyle = {
-    textDecoration: "underline",
-    color: "blue",
-    //fontWeight: "bold",
+    //textDecoration: "underline",
+    //color: '#fca311;'
   };
 
   return (
     <>
       <header className='navbar'>
-        <NavLink to='/' className='navbar__title navbar__item'>Värsked Sõõrikud OÜ</NavLink>
+        <NavLink to='/' className='navbar__title'>Värsked Sõõrikud OÜ</NavLink>
         <nav className='navbar__items'>
           <NavLink to='/meist/' className='navbar__item' style={({ isActive }) =>
             isActive ? activeStyle : undefined
           }>Meist</NavLink>
-          <NavLink to='/partnerile/' className='navbar__item' style={({ isActive }) =>
+          <NavLink to='/teenusetingimused/' className='navbar__item' style={({ isActive }) =>
             isActive ? activeStyle : undefined
-          }>Partnerile</NavLink>
+          }>Teenusetingimused</NavLink>
           <NavLink to='/kontakt/' className='navbar__item' style={({ isActive }) =>
             isActive ? activeStyle : undefined
           }>Kontakt</NavLink>
