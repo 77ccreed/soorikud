@@ -187,6 +187,12 @@ $padding-6xl: 7rem;
     margin-bottom: 2rem;
   }
 
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.5rem;
+  }
+
   label,
   input {
     color: $text-color;
@@ -262,8 +268,13 @@ $padding-6xl: 7rem;
 
   @media screen and (min-width: $breakpoint-md) {
     form {
-      grid-template-columns: 1fr 1fr 1fr;
-      background-color: $success-color;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
+
+    }
+
+    .form-row {
+      width: 100%;
     }
   }
 

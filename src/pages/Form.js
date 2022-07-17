@@ -169,7 +169,7 @@ const Form = ({ setFormData, formData }) => {
                 </div>*/}
 
                 <div className="form-row">
-                  <label htmlFor="kogus">Kogus (kg)</label>
+                  <label htmlFor="kogus">Sõõrikute kogus (kg)</label>
                   <input
                     type="number"
                     name="kogus"
@@ -227,12 +227,12 @@ const Form = ({ setFormData, formData }) => {
                   )}
                 </div>
 
-                <div className="form-row">
-                  <h2>Tellimuse andmed</h2>
+                {/*<div className="form-row">
+                  <h4>Tellimuse andmed</h4>
                   <p>
                     {JSON.stringify(values, null, 2)}
                   </p>
-                </div>
+                  </div>*/}
 
 
 
@@ -244,6 +244,11 @@ const Form = ({ setFormData, formData }) => {
                   Vormista tellimus
                 </button>
               </form>
+              <h2>Tellimuse andmed</h2>
+              <p>
+                {JSON.stringify(values, null, 2)}
+              </p>
+              <p>{(values.kogus * 8)}</p>
             </div>
           );
         }}
