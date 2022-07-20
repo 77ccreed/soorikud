@@ -2,7 +2,7 @@ import React from 'react'
 
 const Teenusetingimused = () => {
   return (
-    <div>Teenusetingimused</div>
+    <div className="container">Teenusetingimused</div>
   )
 }
 
