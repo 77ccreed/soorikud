@@ -214,6 +214,10 @@ $padding-6xl: 7rem;
     margin-bottom: 1.5rem;
   }
 
+  .tellimuse-andmed {
+    min-height: 60px;
+  }
+
   button {
     color: $primary-color;
     width: 100%;
@@ -307,8 +311,8 @@ $padding-6xl: 7rem;
 
   @media screen and (min-width: $breakpoint-md) {
 
-    max-width: 450px;
-    max-height: 600px;
+    max-width: 480px;
+    max-height: 640px;
   }
 
 }
@@ -395,21 +399,31 @@ $padding-6xl: 7rem;
 .footer-content {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
 
-  margin-top: $margin-xl;
-  margin-bottom: $margin-xl;
+
+  .footer-content-item-b {
+    font-size: $font-size-xl;
+    align-self: end;
+  }
+
+  .footer-content-item-c {
+    height: 30px;
+  }
+
+  .footer-content-item-d {
+    height: 30px;
+    align-self: end;
+  }
+
+  .footer-content-item-e {
+    height: 30px;
+  }
 
   p {
     font-size: $font-size-sm;
     font-weight: 400;
-    margin-bottom: 0.5rem;
     font-family: $font-family-base;
-
-    img {
-      width: 22px;
-      height: 22px;
-    }
-
 
     a {
       color: $tertiary-color;
@@ -425,8 +439,50 @@ $padding-6xl: 7rem;
 
   @media (min-width: $breakpoint-md) {
     grid-template-columns: 1fr 1fr;
-    grid-direction: row;
-    grid-gap: 1rem;
-    grid-auto-rows: auto;
+    //3 rows
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 0 5rem;
+
+
+    .footer-content-item-a {
+      grid-column: 2 / 3;
+      grid-row: 2 / 4;
+      justify-self: start;
+    }
+
+    .footer-content-item-b {
+      grid-column: 1/ 2;
+      grid-row: 1/ 2;
+      justify-self: end;
+      font-size: $font-size-xl;
+
+      //border: 1px solid red;
+    }
+
+    .footer-content-item-c {
+      grid-column: 1 / 2;
+      grid-row: 2 /3;
+      justify-self: end;
+      align-self: start;
+      //border: 1px solid red;
+    }
+
+    .footer-content-item-d {
+      grid-column: 1 / 2;
+      grid-row: 3/ 4;
+      justify-self: end;
+
+      // border: 1px solid red;
+    }
+
+    .footer-content-item-e {
+      grid-column: 1/ 2;
+      grid-row: 4 / 5;
+      justify-self: end;
+      // border: 1px solid red;
+    }
+
+
+
   }
 }
