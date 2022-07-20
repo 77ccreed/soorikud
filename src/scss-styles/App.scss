@@ -158,7 +158,8 @@ $padding-6xl: 7rem;
 
 
 .container {
-  margin-top: 5rem;
+  margin: $margin-base auto;
+  //margin-top: 5rem;
   padding: 3rem;
   border-radius: $border-radius;
 
@@ -255,7 +256,7 @@ $padding-6xl: 7rem;
 
   @media screen and (min-width: $breakpoint-md) {
     .form-grid {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       grid-gap: 1rem;
 
     }
@@ -273,8 +274,12 @@ $padding-6xl: 7rem;
   grid-template-columns: 1fr;
 
 
+
   @media screen and (min-width: $breakpoint-md) {
     grid-template-columns: 1fr 1fr;
+
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
 }
@@ -301,7 +306,9 @@ $padding-6xl: 7rem;
   margin: auto;
 
   @media screen and (min-width: $breakpoint-md) {
-    width: 100%;
+
+    max-width: 450px;
+    max-height: 600px;
   }
 
 }
