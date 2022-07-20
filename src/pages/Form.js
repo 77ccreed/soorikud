@@ -243,7 +243,7 @@ const Form = ({ setFormData, formData }) => {
 
 
                   <div className="form-row">
-                    <label htmlFor="tellimustingimused">Nõustun tellimustingimustega</label>
+                    <label htmlFor="tellimustingimused">Nõustun teenusetingimustega</label>
                     <input
                       type="checkbox"
                       name="tellimustingimused"
@@ -261,6 +261,7 @@ const Form = ({ setFormData, formData }) => {
                   </div>
 
                 </div>
+                <hr />
 
 
                 <h2>Tellimuse andmed</h2>
@@ -269,23 +270,21 @@ const Form = ({ setFormData, formData }) => {
 
                 {!values.nimi || !values.telefon || !values.kogus || !values.kuupäev || !values.aeg || !values.tellimustingimused ?
                   <p>
-                    Palun täida tühjad väljad.
+                    Täida tühjad väljad ja nõustu teenusetingimustega.
                   </p>
                   : (
                     <p>
-                      <strong>Nimi:</strong> {values.nimi.charAt(0).toUpperCase() + values.nimi.slice(1)}
+                      <strong>Tellija:</strong> {values.nimi.charAt(0).toUpperCase() + values.nimi.slice(1)}, tel. nr: {values.telefon}
                       <br />
-                      <strong>Telefon:</strong> {values.telefon}
+
+                      <strong>Sõõrikute kogus:</strong> {values.kogus} kg ehk {parseInt(values.kogus / 0.08)} sõõrikut
                       <br />
-                      <strong>Sõõrikute kogus:</strong> {values.kogus} kg on {parseInt(values.kogus / 0.08)} sõõrikut
+
+                      <strong>Kättesaamise arg:</strong> {values.kuupäev} kell {values.aeg}
                       <br />
-                      <strong>Maksumus:</strong> {values.kogus * 8} €
+                      <strong>Summa:</strong> {values.kogus * 8} €
                       <br />
-                      <strong>Kättesaamise kuupäev:</strong> {values.kuupäev}
-                      <br />
-                      <strong>Kättesaamise kellaaeg:</strong> {values.aeg}
-                      <br />
-                      <strong>Nõustun tellimustingimustega:</strong> {values.tellimustingimused ? "Jah" : "Ei"}
+
                     </p>
 
                   )}
