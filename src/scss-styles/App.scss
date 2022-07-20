@@ -83,6 +83,10 @@ $padding-6xl: 7rem;
   padding: 0;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 //Navbar styles
 .navbar {
   display: grid;

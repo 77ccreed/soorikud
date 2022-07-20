@@ -5,7 +5,7 @@ const TellimusTehtud = ({ formData }) => {
   return (
     <div className="container">
       <h1>Tellimus tehtud</h1>
-      <p>{formData.nimi}, aitäh!</p>
+      <p><span className='capitalize'>{formData.nimi}</span>, aitäh!</p>
       <p>
         {formData.kogus} kg sõõrikuid ootab teid {formData.kuupäev} kell {formData.aeg}.
 

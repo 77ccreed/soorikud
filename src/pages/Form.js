@@ -276,7 +276,7 @@ const Form = ({ setFormData, formData }) => {
                   </p>
                   : (
                     <p className="tellimuse-andmed">
-                      <strong>Tellija:</strong> {values.nimi.charAt(0).toUpperCase() + values.nimi.slice(1)}, tel. nr: {values.telefon}
+                      <strong>Tellija:</strong><span className="capitalize">{values.nimi}</span>, tel. nr: {values.telefon}
                       <br />
 
                       <strong>Sõõrikute kogus:</strong> {values.kogus} kg ehk {parseInt(values.kogus / 0.08)} sõõrikut
