@@ -179,26 +179,6 @@ const Form = ({ setFormData, formData }) => {
                   )}
                 </div>*/}
 
-                  <div className="form-row">
-                    <label htmlFor="kogus">Sõõrikute kogus (kg)</label>
-                    <input
-                      type="number"
-                      name="kogus"
-                      id="kogus"
-                      min="3"
-                      max="15"
-                      step="0.1"
-                      value={values.kogus}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={
-                        errors.kogus && touched.kogus ? "input-error" : null
-                      }
-                    />
-                    {errors.kogus && touched.kogus && (
-                      <span className="error">{errors.kogus}</span>
-                    )}
-                  </div>
 
                   <div className="form-row">
                     <label htmlFor="kuupäev">Kättesaamise kuupäev</label>
@@ -241,6 +221,28 @@ const Form = ({ setFormData, formData }) => {
                   </div>
 
 
+                  <div className="form-row">
+                    <label htmlFor="kogus">Sõõrikute kogus (kg)</label>
+                    <input
+                      type="number"
+                      name="kogus"
+                      id="kogus"
+                      min="3"
+                      max="10"
+                      step="0.1"
+                      value={values.kogus}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={
+                        errors.kogus && touched.kogus ? "input-error" : null
+                      }
+                    />
+                    {errors.kogus && touched.kogus && (
+                      <span className="error">{errors.kogus}</span>
+                    )}
+                  </div>
+
+                  <br />
 
                   <div className="form-row">
                     <label htmlFor="tellimustingimused">Nõustun teenusetingimustega</label>
@@ -269,11 +271,11 @@ const Form = ({ setFormData, formData }) => {
 
 
                 {!values.nimi || !values.telefon || !values.kogus || !values.kuupäev || !values.aeg || !values.tellimustingimused ?
-                  <p>
+                  <p className="tellimuse-andmed">
                     Täida tühjad väljad ja nõustu teenusetingimustega.
                   </p>
                   : (
-                    <p>
+                    <p className="tellimuse-andmed">
                       <strong>Tellija:</strong> {values.nimi.charAt(0).toUpperCase() + values.nimi.slice(1)}, tel. nr: {values.telefon}
                       <br />
 
