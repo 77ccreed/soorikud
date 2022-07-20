@@ -157,19 +157,6 @@ $padding-6xl: 7rem;
 }
 
 
-.form {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 1rem;
-  margin-top: $margin-xl;
-  margin-bottom: $margin-xl;
-}
-
-
-
-
-
-
 .container {
   margin-top: 5rem;
   padding: 3rem;
@@ -187,7 +174,7 @@ $padding-6xl: 7rem;
     margin-bottom: 2rem;
   }
 
-  form {
+  .form-grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 0.5rem;
@@ -267,8 +254,8 @@ $padding-6xl: 7rem;
 
 
   @media screen and (min-width: $breakpoint-md) {
-    form {
-      grid-template-columns: 1fr 1fr;
+    .form-grid {
+      grid-template-columns: 1fr 1fr 1fr;
       grid-gap: 1rem;
 
     }
