@@ -6,6 +6,7 @@ import * as Yup from 'yup'
 import Hero from "../components/Hero";
 
 
+
 const validationSchema = Yup.object().shape({
   nimi: Yup.string()
     .required('Nimi on kohustuslik')
@@ -33,6 +34,7 @@ const validationSchema = Yup.object().shape({
   //aeg on required, aeg on kohustuslik.
   //aeg on timepickeri kaudu valitud.
   //aeg ei tohi olla väiksem kui 12:00 ja ei tohi olla suurem kui 18:00
+  tellimustingimused: Yup.boolean().oneOf([true], 'Tellimustingimused on kohustuslik').required('Tellimustingimused on kohustuslik'),
 
 })
 
@@ -52,7 +54,6 @@ const Form = ({ setFormData, formData }) => {
   const date = today.setDate(today.getDate() + numberOfDaysToAdd);
   const defaultValue = new Date(date).toISOString().split('T')[0]
 
-  console.log(defaultValue);
   const initialValues = {
     nimi: "",
     telefon: "",
@@ -60,9 +61,10 @@ const Form = ({ setFormData, formData }) => {
     kogus: 3,
     kuupäev: defaultValue,
     aeg: '12:00',
+    tellimustingimused: false,
   };
 
-  console.log(initialValues.kuupäev)
+
 
   return (
     <div className="main-page-container">
@@ -101,7 +103,7 @@ const Form = ({ setFormData, formData }) => {
           return (
             <div className="container">
               <h1>Sõõrikute tellimine</h1>
-              <p>Täida kõik väljad.</p>
+              <p>Täida tühjad väljad.</p>
               <form
                 name="tellimus"
                 method="post"
@@ -121,43 +123,45 @@ const Form = ({ setFormData, formData }) => {
                   </label>
                 </div>
 
-                <div className="form-row">
-                  <label htmlFor="nimi">Nimi</label>
-                  <input
-                    type="text"
-                    name="nimi"
-                    id="nimi"
-                    value={values.nimi}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={
-                      errors.nimi && touched.nimi ? "input-error" : null
-                    }
-                  />
-                  {errors.nimi && touched.nimi && (
-                    <span className="error">{errors.nimi}</span>
-                  )}
-                </div>
+                <div className="form-grid">
 
-                <div className="form-row">
-                  <label htmlFor="telefon">Telefon</label>
-                  <input
-                    type="tel"
-                    name="telefon"
-                    id="telefon"
-                    value={values.telefon}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={
-                      errors.telefon && touched.telefon ? "input-error" : null
-                    }
-                  />
-                  {errors.telefon && touched.telefon && (
-                    <span className="error">{errors.telefon}</span>
-                  )}
-                </div>
+                  <div className="form-row">
+                    <label htmlFor="nimi">Nimi</label>
+                    <input
+                      type="text"
+                      name="nimi"
+                      id="nimi"
+                      value={values.nimi}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={
+                        errors.nimi && touched.nimi ? "input-error" : null
+                      }
+                    />
+                    {errors.nimi && touched.nimi && (
+                      <span className="error">{errors.nimi}</span>
+                    )}
+                  </div>
 
-                {/*<div className="form-row">
+                  <div className="form-row">
+                    <label htmlFor="telefon">Telefon</label>
+                    <input
+                      type="tel"
+                      name="telefon"
+                      id="telefon"
+                      value={values.telefon}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={
+                        errors.telefon && touched.telefon ? "input-error" : null
+                      }
+                    />
+                    {errors.telefon && touched.telefon && (
+                      <span className="error">{errors.telefon}</span>
+                    )}
+                  </div>
+
+                  {/*<div className="form-row">
                   <label htmlFor="email">Email</label>
                   <input
                     type="email"
@@ -175,73 +179,119 @@ const Form = ({ setFormData, formData }) => {
                   )}
                 </div>*/}
 
-                <div className="form-row">
-                  <label htmlFor="kogus">Sõõrikute kogus (kg)</label>
-                  <input
-                    type="number"
-                    name="kogus"
-                    id="kogus"
-                    min="3"
-                    max="15"
-                    step="0.1"
-                    value={values.kogus}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={
-                      errors.kogus && touched.kogus ? "input-error" : null
-                    }
-                  />
-                  {errors.kogus && touched.kogus && (
-                    <span className="error">{errors.kogus}</span>
-                  )}
+                  <div className="form-row">
+                    <label htmlFor="kogus">Sõõrikute kogus (kg)</label>
+                    <input
+                      type="number"
+                      name="kogus"
+                      id="kogus"
+                      min="3"
+                      max="15"
+                      step="0.1"
+                      value={values.kogus}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={
+                        errors.kogus && touched.kogus ? "input-error" : null
+                      }
+                    />
+                    {errors.kogus && touched.kogus && (
+                      <span className="error">{errors.kogus}</span>
+                    )}
+                  </div>
+
+                  <div className="form-row">
+                    <label htmlFor="kuupäev">Kättesaamise kuupäev</label>
+                    <input
+                      type="date"
+                      name="kuupäev"
+                      id="kuupäev"
+                      value={values.kuupäev}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      //placeholder={values.kuupäev}
+                      //defaultValue={defaultValue}
+                      className={
+                        errors.kuupäev && touched.kuupäev ? "input-error" : null
+                      }
+                    />
+                    {errors.kuupäev && touched.kuupäev && (
+                      <span className="error">{errors.kuupäev}</span>
+                    )}
+                  </div>
+
+                  <div className="form-row">
+                    <label htmlFor="aeg">Kättesaamise kellaaeg</label>
+                    <input
+                      type="time"
+                      name="aeg"
+                      id="aeg"
+                      min="09:00"
+                      max="18:00"
+                      value={values.aeg}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={
+                        errors.aeg && touched.aeg ? "input-error" : null
+                      }
+                    />
+                    {errors.aeg && touched.aeg && (
+                      <span className="error">{errors.aeg}</span>
+                    )}
+                  </div>
+
+
+
+                  <div className="form-row">
+                    <label htmlFor="tellimustingimused">Nõustun tellimustingimustega</label>
+                    <input
+                      type="checkbox"
+                      name="tellimustingimused"
+                      id="tellimustingimused"
+                      value={values.tellimustingimused}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={
+                        errors.tellimustingimused && touched.tellimustingimused ? "input-error" : null
+                      }
+                    />
+                    {errors.tellimustingimused && touched.tellimustingimused && (
+                      <span className="error">{errors.tellimustingimused}</span>
+                    )}
+                  </div>
+
                 </div>
 
-                <div className="form-row">
-                  <label htmlFor="kuupäev">Kättesaamise kuupäev</label>
-                  <input
-                    type="date"
-                    name="kuupäev"
-                    id="kuupäev"
-                    value={values.kuupäev}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    //placeholder={values.kuupäev}
-                    //defaultValue={defaultValue}
-                    className={
-                      errors.kuupäev && touched.kuupäev ? "input-error" : null
-                    }
-                  />
-                  {errors.kuupäev && touched.kuupäev && (
-                    <span className="error">{errors.kuupäev}</span>
-                  )}
-                </div>
 
-                <div className="form-row">
-                  <label htmlFor="aeg">Kättesaamise kellaaeg</label>
-                  <input
-                    type="time"
-                    name="aeg"
-                    id="aeg"
-                    min="09:00"
-                    max="18:00"
-                    value={values.aeg}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={
-                      errors.aeg && touched.aeg ? "input-error" : null
-                    }
-                  />
-                  {errors.aeg && touched.aeg && (
-                    <span className="error">{errors.aeg}</span>
-                  )}
-                </div>
+                <h2>Tellimuse andmed</h2>
 
-                {/*<div className="form-row">
-                  <h4>Tellimuse andmed</h4>
+
+
+                {!values.nimi || !values.telefon || !values.kogus || !values.kuupäev || !values.aeg || !values.tellimustingimused ?
                   <p>
-                    {JSON.stringify(values, null, 2)}
+                    Palun täida tühjad väljad.
                   </p>
-                  </div>*/}
+                  : (
+                    <p>
+                      <strong>Nimi:</strong> {values.nimi.charAt(0).toUpperCase() + values.nimi.slice(1)}
+                      <br />
+                      <strong>Telefon:</strong> {values.telefon}
+                      <br />
+                      <strong>Sõõrikute kogus:</strong> {values.kogus} kg on {parseInt(values.kogus / 0.08)} sõõrikut
+                      <br />
+                      <strong>Maksumus:</strong> {values.kogus * 8} €
+                      <br />
+                      <strong>Kättesaamise kuupäev:</strong> {values.kuupäev}
+                      <br />
+                      <strong>Kättesaamise kellaaeg:</strong> {values.aeg}
+                      <br />
+                      <strong>Nõustun tellimustingimustega:</strong> {values.tellimustingimused ? "Jah" : "Ei"}
+                    </p>
+
+                  )}
+
+
+
 
 
 
@@ -253,11 +303,6 @@ const Form = ({ setFormData, formData }) => {
                   Vormista tellimus
                 </button>
               </form>
-              <h2>Tellimuse andmed</h2>
-              <p>
-                {JSON.stringify(values, null, 2)}
-              </p>
-              <p>{(values.kogus * 8)}</p>
             </div>
           );
         }}
