@@ -5,6 +5,7 @@ import { Formik } from "formik";
 import validationSchema from "../components/validationSchema";
 
 import Hero from "../components/Hero";
+import Tellimuseandmed from "../components/Tellimuseandmed";
 
 
 const encode = data => {
@@ -59,6 +60,7 @@ const Form = ({ setFormData, formData }) => {
         }
         }
       >
+
         {(formik) => {
           const {
             values,
@@ -70,7 +72,8 @@ const Form = ({ setFormData, formData }) => {
             dirty
           } = formik;
           return (
-            <div className="container">
+
+            <div className="form-container">
               <h1>Sõõrikute tellimine</h1>
               <p>Täida tühjad väljad.</p>
               <form
@@ -211,54 +214,27 @@ const Form = ({ setFormData, formData }) => {
                     )}
                   </div>
 
-                  <br />
-
-                  <div className="form-row">
-                    <label htmlFor="tellimustingimused">Nõustun teenusetingimustega</label>
-                    <input
-                      type="checkbox"
-                      name="tellimustingimused"
-                      id="tellimustingimused"
-                      value={values.tellimustingimused}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={
-                        errors.tellimustingimused && touched.tellimustingimused ? "input-error" : null
-                      }
-                    />
-                    {errors.tellimustingimused && touched.tellimustingimused && (
-                      <span className="error">{errors.tellimustingimused}</span>
-                    )}
-                  </div>
-
                 </div>
-                <hr />
 
-
-                <h2>Tellimuse andmed</h2>
-
-
-
-                {!values.nimi || !values.telefon || !values.kogus || !values.kuupäev || !values.aeg || !values.tellimustingimused ?
-                  <p className="tellimuse-andmed">
-                    Täida tühjad väljad ja nõustu teenusetingimustega.
-                  </p>
-                  : (
-                    <p className="tellimuse-andmed">
-                      <strong>Tellija:</strong><span className="capitalize">{values.nimi}</span>, tel. nr: {values.telefon}
-                      <br />
-
-                      <strong>Sõõrikute kogus:</strong> {values.kogus} kg ehk {parseInt(values.kogus / 0.08)} sõõrikut
-                      <br />
-
-                      <strong>Kättesaamise arg:</strong> {values.kuupäev} kell {values.aeg}
-                      <br />
-                      <strong>Summa:</strong> {values.kogus * 8} €
-                      <br />
-
-                    </p>
-
+                <div className="form-row-checkbox">
+                  <input
+                    type="checkbox"
+                    name="tellimustingimused"
+                    id="tellimustingimused"
+                    value={values.tellimustingimused}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={
+                      errors.tellimustingimused && touched.tellimustingimused ? "input-error" : null
+                    }
+                  />
+                  <label htmlFor="tellimustingimused">Nõustun teenusetingimustega.</label>
+                  {errors.tellimustingimused && touched.tellimustingimused && (
+                    <span className="error">{errors.tellimustingimused}</span>
                   )}
+                </div>
+
+
 
 
 
@@ -273,6 +249,7 @@ const Form = ({ setFormData, formData }) => {
                   Vormista tellimus
                 </button>
               </form>
+              <Tellimuseandmed values={values} />
             </div>
           );
         }}

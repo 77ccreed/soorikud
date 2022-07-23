@@ -147,18 +147,7 @@ $padding-6xl: 7rem;
 }
 
 
-//Form styles
-
-.form-container {
-  width: auto;
-  max-width: 500px;
-  height: auto;
-  margin: $margin-xl auto;
-  padding: 2rem;
-  border-radius: $border-radius;
-  background-color: $white-color;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
+//container styles
 
 
 .container {
@@ -179,10 +168,26 @@ $padding-6xl: 7rem;
     margin-bottom: 2rem;
   }
 
+}
+
+
+
+
+
+//Form styles
+
+.form-container {
+  width: auto;
+  max-width: 500px;
+  height: auto;
+  margin: $margin-xl auto;
+  padding: 2rem;
+
   .form-grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 0.5rem;
+    margin-top: $margin-base;
   }
 
   label,
@@ -191,7 +196,7 @@ $padding-6xl: 7rem;
   }
 
   label {
-    font-size: 1.4rem;
+    font-size: $font-size-xl;
     margin-bottom: 0.5rem;
   }
 
@@ -201,6 +206,7 @@ $padding-6xl: 7rem;
     padding: 0.5rem 1rem;
     padding-left: 1rem;
     font-size: 1rem;
+    width: 100%;
   }
 
   textarea {
@@ -208,7 +214,7 @@ $padding-6xl: 7rem;
     border-radius: $border-radius;
     padding: 0.5rem 1rem;
     padding-left: 1rem;
-    font-size: 1rem;
+    font-size: $font-size-xl;
     height: 10rem;
   }
 
@@ -218,14 +224,37 @@ $padding-6xl: 7rem;
     margin-bottom: 1.5rem;
   }
 
-  .tellimuse-andmed {
-    min-height: 60px;
+  .form-row-checkbox {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-top: $margin-base;
+    margin-bottom: $margin-base;
+
+    input {
+      margin: 0;
+      padding: 0;
+      width: 22px;
+    }
+
+    label {
+      align-self: center;
+      margin: 0;
+      padding: 0;
+      font-size: $font-size-xl;
+    }
+
+    .error {
+      align-self: start;
+      margin: 0;
+      padding: 0;
+    }
   }
 
   button {
     color: $primary-color;
     width: 100%;
-    font-size: 1.4rem;
+    font-size: $font-size-xl;
     background-color: $quaternary-color;
     border-radius: $border-radius;
     border: 1px solid $gray-line;
@@ -241,6 +270,7 @@ $padding-6xl: 7rem;
 
   .input-error {
     border-color: $error-color;
+    max-width: 100%;
   }
 
 
@@ -249,14 +279,18 @@ $padding-6xl: 7rem;
     color: $error-color;
     font-size: 1rem;
     margin-top: 0.3rem;
+    max-width: 100%;
   }
 
   .disabled-btn {
     cursor: not-allowed;
     background: $secondary-color;
+    width: 100%;
+
 
     &:hover {
       background: $secondary-color;
+
     }
   }
 
@@ -266,14 +300,29 @@ $padding-6xl: 7rem;
     .form-grid {
       grid-template-columns: 1fr 1fr;
       grid-gap: 1rem;
-
     }
+
 
     .form-row {
       width: 100%;
     }
   }
+}
 
+
+
+//tellimuse andmed
+
+.tellimuse-andmed-container {
+  margin: $margin-base auto;
+  //margin-top: 5rem;
+  padding: 2rem;
+}
+
+.tellimuse-andmed {
+  min-height: 60px;
+  line-height: 20px;
+  margin: $margin-sm auto;
 }
 
 //main page
