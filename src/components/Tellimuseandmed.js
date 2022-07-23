@@ -1,6 +1,13 @@
 import React from 'react'
 
 const Tellimuseandmed = ({ values }) => {
+
+
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  var selectedDate = new Date(values.kuupäev);
+  var formattedDate = selectedDate.toLocaleDateString("et-EE", options);
+  console.log(formattedDate)
+
   return (
     <div className='tellimuse-andmed-container'>
       <hr />
@@ -15,7 +22,7 @@ const Tellimuseandmed = ({ values }) => {
             <br />
             <strong>Sõõrikute kogus:</strong> {values.kogus} kg ehk {parseInt(values.kogus / 0.08)} sõõrikut
             <br />
-            <strong>Kättesaamise arg:</strong> {values.kuupäev} kell {values.aeg}
+            <strong>Kättesaamise arg:</strong> {formattedDate}, kell {values.aeg}
             <br />
             <strong>Summa:</strong> {values.kogus * 8} €
             <br />
