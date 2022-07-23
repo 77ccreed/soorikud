@@ -6,7 +6,6 @@ const Tellimuseandmed = ({ values }) => {
   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   var selectedDate = new Date(values.kuupäev);
   var formattedDate = selectedDate.toLocaleDateString("et-EE", options);
-  console.log(formattedDate)
 
   return (
     <div className='tellimuse-andmed-container'>
