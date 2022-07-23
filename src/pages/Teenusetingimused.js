@@ -5,14 +5,16 @@ const Teenusetingimused = () => {
     <div className="container">
       <h1>Teenusetingimused</h1>
       <p>
-        Sõõrikud ettetellimisel hinnaga 8€/kg.
+        Hind.
       </p>
       <p>
-        Miinimum kogus 3kg.
+        Miinimum kogus, mida saab tellida.
       </p>
       <p>
-        Esimene kättesaamise aeg homsest, kell 12:00.
+        Kättesaamine. Kättesaamise koht. Esimene kättesaamise aeg homsest, kell 12:00.
       </p>
+      <p>Mille jaoks andmeid kogutakse ja kuidas neid kasutatakse.</p>
+      <p>Kuidas käib tellimuse tühistamine.</p>
     </div>
   )
 }
