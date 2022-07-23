@@ -27,7 +27,7 @@ const validationSchema = Yup.object().shape({
   //aeg on required, aeg on kohustuslik.
   //aeg on timepickeri kaudu valitud.
   //aeg ei tohi olla väiksem kui 12:00 ja ei tohi olla suurem kui 18:00
-  tellimustingimused: Yup.boolean().oneOf([true], 'Tellimustingimused on kohustuslik').required('Tellimustingimused on kohustuslik'),
+  tellimustingimused: Yup.boolean().oneOf([true], 'Kohustuslik väli').required('Kohustuslik väli'),
 
 })
 
