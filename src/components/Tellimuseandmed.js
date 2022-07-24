@@ -17,7 +17,7 @@ const Tellimuseandmed = ({ values }) => {
         </p>
         : (
           <p className="tellimuse-andmed">
-            <strong>Tellija:</strong><span className="capitalize">{values.nimi}</span>, tel nr: {values.telefon}
+            <strong>Tellija:</strong><span className="capitalize">{values.nimi}</span>, tel: {values.telefon}
             <br />
             <strong>Sõõrikute kogus:</strong> {values.kogus} kg ehk {parseInt(values.kogus / 0.08)} sõõrikut
             <br />
