@@ -25,7 +25,7 @@ const Kontakt = () => {
     ,
     sõnum: Yup.string()
       .required('Sõnum on kohustuslik')
-      .min(3, 'Sõnum on liiga lühike')
+      .min(10, 'Sõnum on liiga lühike')
       .max(10000, 'Sõnum on liiga pikk'),
   }
   )
@@ -76,8 +76,9 @@ const Kontakt = () => {
           dirty
         } = formik;
         return (
-          <div className="container">
+          <div className="form-container">
             <h1>Saada sõnum</h1>
+            <p>Vastame esimesel võimalusel.</p>
             <form
               name="kontakt"
               method="post"
@@ -171,7 +172,11 @@ const Kontakt = () => {
 
 
               <div className="form-row">
-                <button type="submit" disabled={!isValid || !dirty}>
+                <button
+                  type="submit"
+                  className={!(dirty && isValid) ? "disabled-btn" : ""}
+                  disabled={!(dirty && isValid)}
+                >
                   Saada sõnum
                 </button>
               </div>
