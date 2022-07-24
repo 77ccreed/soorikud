@@ -34,7 +34,7 @@ const Form = ({ setFormData, formData }) => {
     tellimustingimused: false,
   };
 
-
+  console.log(formData.aeg)
 
   return (
     <div className="main-page-container">
