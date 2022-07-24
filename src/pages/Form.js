@@ -43,7 +43,6 @@ const Form = ({ setFormData, formData }) => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={data => {
-          console.log(data)
           fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -233,13 +232,6 @@ const Form = ({ setFormData, formData }) => {
                     <span className="error">{errors.tellimustingimused}</span>
                   )}
                 </div>
-
-
-
-
-
-
-
 
                 <button
                   type="submit"

@@ -151,19 +151,21 @@ $padding-6xl: 7rem;
 
 
 .container {
+  max-width: 800px;
   margin: $margin-base auto;
-  //margin-top: 5rem;
   padding: 3rem;
-  border-radius: $border-radius;
+
 
   h1 {
-    font-size: 2rem;
+    font-size: $font-size-2xl;
     color: $quinary-color;
-    //margin-bottom: 2rem;
+    font-weight: 600;
+    margin-bottom: $margin-base;
+
   }
 
   p {
-    //font-size: 1.25rem;
+    font-size: $font-size-base;
     color: $text-color;
     margin-bottom: 2rem;
   }
@@ -329,7 +331,7 @@ $padding-6xl: 7rem;
 .main-page-container {
   display: grid;
   grid-template-columns: 1fr;
-
+  align-items: start;
 
 
   @media screen and (min-width: $breakpoint-md) {
@@ -345,14 +347,11 @@ $padding-6xl: 7rem;
 //hero
 
 .hero-container {
-  //background-color: $tertiary-color;
   color: $quinary-color;
-  //text-shadow: $primary-color 2px 0 10px;
   padding: 3rem;
   text-align: left;
   font-size: 2rem;
   font-weight: bold;
-  //margin-bottom: 3rem;
   background-image: linear-gradient(to right, #fca21100, #fca21135), url('../img/soorik.jpg');
   background-size: cover;
   background-position: center;
@@ -375,13 +374,6 @@ $padding-6xl: 7rem;
   font-weight: bold;
   margin-bottom: 1rem;
   font-family: $font-family-text;
-
-  // background-color: rgba(255, 255, 255, 0.9);
-  //padding: 0.5rem;
-  // border-radius: $border-radius;
-
-  //animation-duration: 3s;
-  //animation-name: slidein;
 }
 
 .hero-container-text {
@@ -389,7 +381,6 @@ $padding-6xl: 7rem;
   padding: 0.5rem;
   border-radius: $border-radius;
   font-family: $font-family-text;
-
 
   animation-duration: 2s;
   animation-name: slidein;
@@ -413,12 +404,6 @@ $padding-6xl: 7rem;
   font-size: 1.2rem;
   margin-bottom: 1rem;
   font-weight: 400;
-  //background-color: rgba(255, 255, 255, 0.9);
-  //padding: 0.5rem;
-  //border-radius: $border-radius;
-
-  // animation-duration: 5s;
-  //animation-name: slidein-text;
 }
 
 
