@@ -4,7 +4,9 @@ const Meist = () => {
   return (
     <div className="container">
       <h1>Värsked sõõrikud Võrus</h1>
-      <p>Värsked Sõõrikud OÜ rõõmustab sõõrikusõpru aastast 2017. Valmistame sõõrikuid ettetellimisel. Pakume ehtsaid vanakooli sõõrikuid, valmistatud pärmitaignast ja peal tuhksuhkur. Toome teile sõõrikud kohale kohe peale küpsetamist, värskete ja krõbedatena</p>
+      <p>Värsked Sõõrikud OÜ rõõmustab sõõrikusõpru aastast 2017. Valmistame sõõrikuid ettetellimisel.
+        <br />
+        Pakume ehtsaid vanakooli sõõrikuid, valmistatud pärmitaignast ja peal tuhksuhkur. Sõõrikud saab kätte kohe peale küpsetamist, värskete ja krõbedatena</p>
     </div>
   )
 }
