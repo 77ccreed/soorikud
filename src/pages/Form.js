@@ -25,14 +25,6 @@ const Form = ({ setFormData, formData }) => {
   const defaultValue = new Date(date).toISOString().split('T')[0]
 
 
-  const time = new Date();
-  const timeString = time.toLocaleTimeString("et-EE", { hour: 'numeric', minute: 'numeric', hour12: false });
-  console.log(timeString)
-
-
-
-  console.log(new Date('12:00').toLocaleTimeString("et-EE", { hour: 'numeric', minute: 'numeric', hour12: false }))
-
   const initialValues = {
     nimi: "",
     telefon: "",
@@ -168,8 +160,6 @@ const Form = ({ setFormData, formData }) => {
                       value={values.kuupäev}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      //placeholder={values.kuupäev}
-                      //defaultValue={defaultValue}
                       className={
                         errors.kuupäev && touched.kuupäev ? "input-error" : null
                       }
