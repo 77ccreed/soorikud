@@ -24,6 +24,15 @@ const Form = ({ setFormData, formData }) => {
   const date = today.setDate(today.getDate() + numberOfDaysToAdd);
   const defaultValue = new Date(date).toISOString().split('T')[0]
 
+
+  const time = new Date();
+  const timeString = time.toLocaleTimeString("et-EE", { hour: 'numeric', minute: 'numeric', hour12: false });
+  console.log(timeString)
+
+
+
+  console.log(new Date('12:00').toLocaleTimeString("et-EE", { hour: 'numeric', minute: 'numeric', hour12: false }))
+
   const initialValues = {
     nimi: "",
     telefon: "",
@@ -34,7 +43,6 @@ const Form = ({ setFormData, formData }) => {
     tellimustingimused: false,
   };
 
-  console.log(formData.aeg)
 
   return (
     <div className="main-page-container">
@@ -177,8 +185,6 @@ const Form = ({ setFormData, formData }) => {
                       type="time"
                       name="aeg"
                       id="aeg"
-                      min="09:00"
-                      max="18:00"
                       value={values.aeg}
                       onChange={handleChange}
                       onBlur={handleBlur}
