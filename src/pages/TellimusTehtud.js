@@ -41,9 +41,9 @@ const TellimusTehtud = ({ formData, setFormData }) => {
         <>
           <p><span className='capitalize'>{formData.nimi}</span>, aitäh!</p>
           <p>
-            {formattedDate}, kell {formData.aeg}.
-            <br />
             {formData.kogus} kg sõõrikuid ({parseInt(formData.kogus / 0.08)} tk) ootab teid aadressil Kooli 6, Võru.
+            <br />
+            {formattedDate}, kell {formData.aeg}.
             <br />
             Summa: {formData.kogus * 8} €
           </p>
@@ -53,6 +53,7 @@ const TellimusTehtud = ({ formData, setFormData }) => {
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
+            className='form-container'
           >
             {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
             <input type="hidden" name="form-name" value="tellimus" />
