@@ -17,27 +17,26 @@ const Teenusetingimused = () => {
       </p>
       <h2>3. Tellimuse vormistamine</h2>
       <p>
-        3.1. Teenuse vormistatakse täites tellimusvormi esitates tõeseid andmeid ja nõustudes teenusetingimustega.
+        3.1. Teenus vormistamine toimub täites tellimusvormi esitates tõeseid andmeid ja nõustudes teenusetingimustega.
       </p>
       <h2>4. Tellimuse eest tasumine</h2>
       <p>
         4.1. Tellimuse eest tasumine toimub tellimusvormil tellija poolt määratud ajal, aadressil Kooli 6, Võru, 65606
         Võru maakond.
         <br />
-        4.2. Tellimuse eest tasumine toimub sularahas.
+        4.2. Tellimuse eest tasumine toimub sularahas kodulehel määratud summa ulatuses.
       </p>
       <h2>5. Tellimuse täitmine</h2>
       <p>
         5.1. Tellimuse täitmine toimub tellimusvormil tellija poolt määratud ajal, aadressil Kooli 6, Võru, 65606, Võru maakond.
-
       </p>
       <h2>6. Tellimuse tühistamine</h2>
       <p>
-        6.1.Tellija saab tellimuse tühistada kodulehe vahendusel. Või helistades telefoni numbrile +372 510 3606.
+        6.1. Tellija saab tellimuse tühistada kodulehe vahendusel. Või helistades telefoni numbrile +372 510 3606.
         <br />
-        6.2.Tellija saab tühistada ainult tellimusi, mille täitmiseni on rohkem aega kui 12 tundi.
+        6.2. Tellija saab tühistada ainult tellimusi, mille täitmiseni on rohkem aega kui 12 tundi.
         <br />
-        6.3.Värsked Sõõrikud OÜ saab tellimuse tühistada helistades tellija poolt määratud telefoninumbril.
+        6.3. Värsked Sõõrikud OÜ saab tellimuse tühistada helistades tellija poolt tellimisvormile jäetud telefoninumbril.
       </p>
       <h2>7. Vastutus</h2>
       <p>
