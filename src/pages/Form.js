@@ -15,7 +15,7 @@ const encode = data => {
 }
 
 
-const Form = ({ setFormData, formData }) => {
+const Form = ({ setFormData }) => {
 
   const navigate = useNavigate();
 
@@ -59,7 +59,6 @@ const Form = ({ setFormData, formData }) => {
         }
         }
       >
-
         {(formik) => {
           const {
             values,
@@ -236,6 +235,7 @@ const Form = ({ setFormData, formData }) => {
                 >
                   Vormista tellimus
                 </button>
+
               </form>
               <Tellimuseandmed values={values} />
             </div>
