@@ -443,6 +443,8 @@ $padding-6xl: 7rem;
   .footer-content-item-b {
     font-size: $font-size-xl;
     align-self: end;
+
+    white-space: nowrap;
   }
 
   .footer-content-item-c {
