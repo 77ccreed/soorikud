@@ -21,7 +21,7 @@ const validationSchema = Yup.object().shape({
     .max(10, 'Kogus on liiga suur'),
   kuupäev: Yup.date().required('Kuupäev on kohustuslik').min(new Date(new Date().setDate(new Date().getDate())), 'Kuupäev ei tohi olla minevikus või tänane').max(new Date(new Date().setFullYear(new Date().getFullYear() + 1)), 'Kuupäev on liiga kaugel tulevikus'),
   aeg: Yup.string().required('Aeg on kohustuslik')
-    .test('aeg', 'Tellimusi võetakse vastu 12:00 kuni 18:00.', function (value) {
+    .test('aeg', 'Tellimusi täidetakse 12:00 kuni 18:00.', function (value) {
       if (value) {
         const aeg = value.split(':');
         const hours = parseInt(aeg[0]);
