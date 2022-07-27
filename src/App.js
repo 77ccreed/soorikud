@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import createPersistedState from 'use-persisted-state';
 import './scss-styles/App.scss';
 import {
-  Routes, Route, Navigate
+  Routes, Route
 } from "react-router-dom";
 import Layout from './components/Layout';
 
