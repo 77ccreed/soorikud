@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import createPersistedState from 'use-persisted-state';
 import './scss-styles/App.scss';
 import {
   Routes, Route
@@ -15,16 +16,25 @@ import KiriSaadetud from './pages/KiriSaadetud';
 
 import Form from './pages/Form';
 
-function App() {
+const today = new Date();
+const numberOfDaysToAdd = 1;
+const date = today.setDate(today.getDate() + numberOfDaysToAdd);
+const defaultValue = new Date(date).toISOString().split('T')[0]
 
-  const [formData, setFormData] = useState({
+function App() {
+  const useFormDataState = createPersistedState('formData');
+
+
+  const [formData, setFormData] = useFormDataState({
     nimi: '',
     telefon: '',
     email: '',
-    kogus: '',
-    tellimuse_kättesaamise_aeg_kuupäev: '',
-    tellimuse_kättesaamise_aeg_kellaaeg: '',
-  })
+    kogus: 3,
+    tellimuse_kättesaamise_aeg_kuupäev: defaultValue,
+    aeg: '12:00',
+  }
+  );
+
 
 
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 
@@ -15,25 +15,30 @@ const encode = data => {
 }
 
 
-const Form = ({ setFormData }) => {
+const Form = ({ formData, setFormData }) => {
 
   const navigate = useNavigate();
 
-  const today = new Date();
-  const numberOfDaysToAdd = 1;
-  const date = today.setDate(today.getDate() + numberOfDaysToAdd);
-  const defaultValue = new Date(date).toISOString().split('T')[0]
+  useEffect(() => {
+    if (formData.kogus === 0) {
+      navigate("/");
+    }
+  }, [formData, navigate]);
 
 
   const initialValues = {
-    nimi: "",
-    telefon: "",
+    nimi: formData.nimi,
+    telefon: formData.telefon,
     //email: "",
-    kogus: 3,
-    kuupäev: defaultValue,
-    aeg: '12:00',
+    kogus: formData.kogus,
+    kuupäev: formData.kuupäev,
+    aeg: formData.aeg,
     tellimustingimused: false,
   };
+
+
+
+  console.log(formData);
 
 
   return (
@@ -42,6 +47,12 @@ const Form = ({ setFormData }) => {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
+        //change formData when form is changed, not when form is submitted
+        onChange={(values) => {
+          setFormData({ ...formData, ...values });
+        }
+        }
+
         onSubmit={data => {
           fetch("/", {
             method: "POST",
@@ -169,7 +180,7 @@ const Form = ({ setFormData }) => {
                   </div>
 
                   <div className="form-row">
-                    <label htmlFor="aeg">Kättesaamise kellaaeg</label>
+                    <label htmlFor="aeg">Kättesaamise kellaaeg (12-18)</label>
                     <input
                       type="time"
                       name="aeg"

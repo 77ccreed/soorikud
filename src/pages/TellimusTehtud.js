@@ -20,6 +20,7 @@ const TellimusTehtud = ({ formData, setFormData }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setFormData({ ...formData, kogus: 0 })
+    console.log(formData)
 
     // const form = e.target
     fetch('/', {
@@ -27,7 +28,7 @@ const TellimusTehtud = ({ formData, setFormData }) => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': "tellimus",
-        ...formData,
+        ...formData, kogus: 0,
       }),
     })
       .catch(error => alert(error))
