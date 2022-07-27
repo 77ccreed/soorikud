@@ -23,6 +23,9 @@ const Tellimuseandmed = ({ values }) => {
             <br />
             <strong>Kättesaamise arg:</strong> {formattedDate}, kell {values.aeg}
             <br />
+            <strong>Kättesaamise koht:</strong> Kooli 6, Võru, 65606
+            Võru maakond
+            <br />
             <strong>Summa:</strong> {values.kogus * 8} €
             <br />
           </p>

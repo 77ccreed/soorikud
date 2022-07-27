@@ -2,12 +2,17 @@ import React from 'react'
 import encode from '../constants/encode'
 import defaultValue from '../constants/defaultValue'
 
+
+
 const Ostukorv = ({ formData, setFormData }) => {
+
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  var selectedDate = new Date(formData.kuupäev);
+  var formattedDate = selectedDate.toLocaleDateString("et-EE", options);
 
   const handleSubmit = (e) => {
     e.preventDefault()
     setFormData({ ...formData, kogus: 0, kehtivTellimus: false })
-
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -22,17 +27,19 @@ const Ostukorv = ({ formData, setFormData }) => {
   return (
     <div className='container'>
       <h1>Teie tellimus</h1>
-      <p>
-        <strong>Nimi:</strong> {formData.nimi}
+      <p className="tellimuse-andmed">
+        <strong>Tellija:</strong><span className="capitalize">{formData.nimi}</span>, tel: {formData.telefon}
         <br />
-        <strong>Telefon:</strong> {formData.telefon}
+        <strong>Sõõrikute kogus:</strong> {formData.kogus} kg ehk {parseInt(formData.kogus / 0.08)} sõõrikut
         <br />
-        <strong>Kättesaamise aeg:</strong> {formData.kuupäev} {formData.aeg}
+        <strong>Kättesaamise arg:</strong> {formattedDate}, kell {formData.aeg}
         <br />
-        <strong>Sõõrikute kogus:</strong> {formData.kogus} kg
+        <strong>Kättesaamise koht:</strong> Kooli 6, Võru, 65606
+        Võru maakond
         <br />
         <strong>Summa:</strong> {formData.kogus * 8} €
       </p>
+
       <form
         name="tellimus"
         method="post"
