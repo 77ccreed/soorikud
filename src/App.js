@@ -37,7 +37,6 @@ function App() {
       const date = new Date(kuupäev[0], kuupäev[1] - 1, kuupäev[2], aeg[0], aeg[1]);
 
       if (date.getTime() < new Date().getTime()) {
-        console.log('aeg on minevikus');
         setFormData({
           nimi: '',
           telefon: '',
@@ -50,8 +49,7 @@ function App() {
         });
       }
     }
-  }, []);
-
+  });
 
   return (
     <Layout setFormData={setFormData} formData={formData}>
