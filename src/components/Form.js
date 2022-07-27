@@ -7,24 +7,24 @@ import encode from "../constants/encode";
 
 import Tellimuseandmed from "./Tellimuseandmed";
 
+const today = new Date();
+const numberOfDaysToAdd = 1;
+const date = today.setDate(today.getDate() + numberOfDaysToAdd);
+const defaultValue = new Date(date).toISOString().split('T')[0]
 
 const Form = ({ formData, setFormData }) => {
-  console.log(formData);
   const navigate = useNavigate();
 
-
   const initialValues = {
-    nimi: formData.nimi,
-    telefon: formData.telefon,
+    nimi: '',
+    telefon: '',
     //email: "",
-    kogus: formData.kogus,
-    kuupäev: formData.kuupäev,
-    aeg: formData.aeg,
+    kogus: 3,
+    kuupäev: defaultValue,
+    aeg: '12:00',
     tellimustingimused: false,
-    kehtivTellimus: formData.kehtivTellimus,
+    kehtivTellimus: false,
   };
-
-
 
   return (
     <Formik

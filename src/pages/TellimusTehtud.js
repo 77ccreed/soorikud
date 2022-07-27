@@ -1,9 +1,16 @@
 import React from 'react'
-import encode from '../constants/encode'
-import defaultValue from '../constants/defaultValue'
+//import { Formik } from "formik";
+
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
 
 
 const TellimusTehtud = ({ formData, setFormData }) => {
+  console.log(formData)
+
 
 
   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -12,18 +19,19 @@ const TellimusTehtud = ({ formData, setFormData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setFormData({ ...formData, kogus: 0, kehtivTellimus: false })
+    setFormData({ ...formData, kogus: 0 })
 
+    // const form = e.target
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': "tellimus",
-        ...formData, kogus: 0,
+        ...formData,
       }),
     })
-    setFormData({ nimi: '', telefon: '', kogus: 3, kuupäev: defaultValue, aeg: '12:00', tellimustingimused: false, kehtivTellimus: false })
       .catch(error => alert(error))
+
   }
 
   return (

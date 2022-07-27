@@ -5,7 +5,6 @@ import Form from '../components/Form'
 import Ostukorv from '../components/Ostukorv'
 
 const Avaleht = ({ formData, setFormData }) => {
-  console.log(formData.kehtivTellimus);
   return (
     <div className="main-page-container">
       <Hero />
