@@ -46,8 +46,11 @@ function App() {
         <Route path="teenusetingimused/" element={<Teenusetingimused />} />
         <Route path="partnerile/" element={<Koostööpartnerile />} />
         <Route path="kontakt/" element={<Kontakt />} />
-        <Route path="tellimus-tehtud/" element={<TellimusTehtud formData={formData} setFormData={setFormData} />} />
         <Route path="kiri-saadetud/" element={<KiriSaadetud />} />
+
+        {formData.kehtivTellimus && (
+          <Route path="tellimus-tehtud/" element={<TellimusTehtud formData={formData} setFormData={setFormData} />} />
+        )}
 
         <Route path="*" element={<Avaleht setFormData={setFormData} formData={formData} />} />
       </Routes>
