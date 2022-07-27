@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 
@@ -19,12 +19,6 @@ const Form = ({ formData, setFormData }) => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (formData.kogus === 0) {
-      navigate("/");
-    }
-  }, [formData, navigate]);
-
 
   const initialValues = {
     nimi: formData.nimi,
@@ -34,11 +28,9 @@ const Form = ({ formData, setFormData }) => {
     kuupäev: formData.kuupäev,
     aeg: formData.aeg,
     tellimustingimused: false,
+    kehtivTellimus: formData.kehtivTellimus,
   };
 
-
-
-  console.log(formData);
 
 
   return (
@@ -47,12 +39,6 @@ const Form = ({ formData, setFormData }) => {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        //change formData when form is changed, not when form is submitted
-        onChange={(values) => {
-          setFormData({ ...formData, ...values });
-        }
-        }
-
         onSubmit={data => {
           fetch("/", {
             method: "POST",
@@ -63,7 +49,7 @@ const Form = ({ formData, setFormData }) => {
             }),
           })
             .then(() => {
-              setFormData(data);
+              setFormData({ ...data, kehtivTellimus: true });
               navigate('/tellimus-tehtud/');
             })
             .catch(error => alert(error))
