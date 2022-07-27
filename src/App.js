@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import createPersistedState from 'use-persisted-state';
 import './scss-styles/App.scss';
 import {
-  Routes, Route
+  Routes, Route, Navigate
 } from "react-router-dom";
 import Layout from './components/Layout';
 
@@ -18,7 +18,6 @@ import defaultValue from './constants/defaultValue';
 
 function App() {
   const useFormDataState = createPersistedState('formData');
-
 
   const [formData, setFormData] = useFormDataState({
     nimi: null,
@@ -54,7 +53,6 @@ function App() {
   }, []);
 
 
-
   return (
     <Layout setFormData={setFormData} formData={formData}>
       <Routes>
@@ -68,7 +66,6 @@ function App() {
         {formData.kehtivTellimus && (
           <Route path="tellimus-tehtud/" element={<TellimusTehtud formData={formData} setFormData={setFormData} />} />
         )}
-
         <Route path="*" element={<Avaleht setFormData={setFormData} formData={formData} />} />
       </Routes>
     </Layout>
