@@ -14,7 +14,7 @@ import TellimusTehtud from './pages/TellimusTehtud';
 import KiriSaadetud from './pages/KiriSaadetud';
 import Avaleht from './pages/Avaleht';
 
-
+import defaultValue from './constants/defaultValue';
 
 function App() {
   const useFormDataState = createPersistedState('formData');
@@ -25,16 +25,33 @@ function App() {
     telefon: null,
     email: null,
     kogus: null,
-    tellimuse_kättesaamise_aeg_kuupäev: null,
+    kuupäev: null,
     aeg: null,
     kehtivTellimus: false,
   }
   );
 
   useEffect(() => {
-    console.log(formData);
-  }
-    , [formData]);
+    if (formData.kuupäev && formData.aeg && formData.kehtivTellimus) {
+      const kuupäev = formData.kuupäev.split('-');
+      const aeg = formData.aeg.split(':');
+      const date = new Date(kuupäev[0], kuupäev[1] - 1, kuupäev[2], aeg[0], aeg[1]);
+
+      if (date.getTime() < new Date().getTime()) {
+        console.log('aeg on minevikus');
+        setFormData({
+          nimi: '',
+          telefon: '',
+          //email: "",
+          kogus: 3,
+          kuupäev: defaultValue,
+          aeg: '12:00',
+          tellimustingimused: false,
+          kehtivTellimus: false,
+        });
+      }
+    }
+  }, []);
 
 
 
