@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import createPersistedState from 'use-persisted-state';
 import './scss-styles/App.scss';
 import {
@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import Layout from './components/Layout';
 
-import MultiStepForm from './pages/MultiStepForm';
 import Meist from './pages/Meist';
 import Teenusetingimused from './pages/Teenusetingimused';
 import Kontakt from './pages/Kontakt';
@@ -48,7 +47,7 @@ function App() {
         <Route path="tellimus-tehtud/" element={<TellimusTehtud formData={formData} setFormData={setFormData} />} />
         <Route path="kiri-saadetud/" element={<KiriSaadetud />} />
 
-        <Route path="*" element={<MultiStepForm />} />
+        <Route path="*" element={<Form setFormData={setFormData} formData={formData} />} />
       </Routes>
     </Layout>
   );
