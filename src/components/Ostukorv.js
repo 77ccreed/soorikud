@@ -26,7 +26,7 @@ const Ostukorv = ({ formData, setFormData }) => {
   }
   return (
     <div className='container'>
-      <h1>Teie tellimus</h1>
+      <h1>Tellimuse andmed</h1>
       <p className="tellimuse-andmed">
         <strong>Tellija:</strong><span className="capitalize">{formData.nimi}</span>, tel: {formData.telefon}
         <br />
@@ -34,8 +34,7 @@ const Ostukorv = ({ formData, setFormData }) => {
         <br />
         <strong>Kättesaamise arg:</strong> {formattedDate}, kell {formData.aeg}
         <br />
-        <strong>Kättesaamise koht:</strong> Kooli 6, Võru, 65606
-        Võru maakond
+        <strong>Kättesaamise koht:</strong> Kooli 6, Võru
         <br />
         <strong>Summa:</strong> {formData.kogus * 8} €
       </p>

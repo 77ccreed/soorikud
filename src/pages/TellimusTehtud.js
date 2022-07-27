@@ -20,8 +20,7 @@ const TellimusTehtud = ({ formData }) => {
         <br />
         <strong>Kättesaamise arg:</strong> {formattedDate}, kell {formData.aeg}
         <br />
-        <strong>Kättesaamise koht:</strong> Kooli 6, Võru, 65606
-        Võru maakond
+        <strong>Kättesaamise koht:</strong> Kooli 6, Võru
         <br />
         <strong>Summa:</strong> {formData.kogus * 8} €
       </p>
