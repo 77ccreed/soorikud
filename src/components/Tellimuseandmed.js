@@ -21,7 +21,7 @@ const Tellimuseandmed = ({ values }) => {
             <br />
             <strong>Sõõrikute kogus:</strong> {values.kogus} kg ehk {parseInt(values.kogus / 0.08)} sõõrikut
             <br />
-            <strong>Kättesaamise arg:</strong> {formattedDate}, kell {values.aeg}
+            <strong>Kättesaamise aeg:</strong> {formattedDate}, kell {values.aeg}
             <br />
             <strong>Kättesaamise koht:</strong> Kooli 6, Võru
             <br />

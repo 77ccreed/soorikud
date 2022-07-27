@@ -18,7 +18,7 @@ const TellimusTehtud = ({ formData }) => {
         <br />
         <strong>Sõõrikute kogus:</strong> {formData.kogus} kg ehk {parseInt(formData.kogus / 0.08)} sõõrikut
         <br />
-        <strong>Kättesaamise arg:</strong> {formattedDate}, kell {formData.aeg}
+        <strong>Kättesaamise aeg:</strong> {formattedDate}, kell {formData.aeg}
         <br />
         <strong>Kättesaamise koht:</strong> Kooli 6, Võru
         <br />
