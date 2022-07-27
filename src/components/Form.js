@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 
-import validationSchema from "./validationSchema";
-import encode from "./encode";
+import validationSchema from "../constants/validationSchema";
+import encode from "../constants/encode";
 
 import Tellimuseandmed from "./Tellimuseandmed";
 

@@ -1,10 +1,6 @@
 import React from 'react'
-import encode from './encode'
-
-const today = new Date();
-const numberOfDaysToAdd = 1;
-const date = today.setDate(today.getDate() + numberOfDaysToAdd);
-const defaultValue = new Date(date).toISOString().split('T')[0]
+import encode from '../constants/encode'
+import defaultValue from '../constants/defaultValue'
 
 const Ostukorv = ({ formData, setFormData }) => {
 

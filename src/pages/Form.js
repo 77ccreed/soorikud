@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 
-import validationSchema from "../components/validationSchema";
+import validationSchema from "../constants/validationSchema";
 
 import Hero from "../components/Hero";
 import Tellimuseandmed from "../components/Tellimuseandmed";
