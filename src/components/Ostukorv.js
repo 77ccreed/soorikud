@@ -27,7 +27,7 @@ const Ostukorv = ({ formData, setFormData }) => {
     <div className='container'>
       <h1>Tellimuse andmed</h1>
       <p className="tellimuse-andmed">
-        <strong>Tellija:</strong><span className="capitalize">{formData.nimi}</span>, tel: {formData.telefon}
+        <strong>Tellija:</strong><span className="capitalize"> {formData.nimi}</span>, tel: {formData.telefon}
         <br />
         <strong>Sõõrikute kogus:</strong> {formData.kogus} kg ehk {parseInt(formData.kogus / 0.08)} sõõrikut
         <br />
