@@ -228,6 +228,12 @@ $padding-6xl: 7rem;
     height: 10rem;
   }
 
+  p {
+    font-size: $font-size-base;
+    color: $text-color;
+    margin: 0 0 $margin-xl 0;
+  }
+
   .form-row {
     display: flex;
     flex-direction: column;
