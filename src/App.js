@@ -13,6 +13,7 @@ import Koostööpartnerile from './pages/Koostööpartnerile';
 import TellimusTehtud from './pages/TellimusTehtud';
 import KiriSaadetud from './pages/KiriSaadetud';
 import Avaleht from './pages/Avaleht';
+import LehteEiLeitud from './pages/404';
 
 import defaultValue from './constants/defaultValue';
 
@@ -64,7 +65,7 @@ function App() {
         {formData.kehtivTellimus && (
           <Route path="tellimus-tehtud/" element={<TellimusTehtud formData={formData} setFormData={setFormData} />} />
         )}
-        <Route path="*" element={<Avaleht setFormData={setFormData} formData={formData} />} />
+        <Route path="*" element={<LehteEiLeitud />} />
       </Routes>
     </Layout>
   );
