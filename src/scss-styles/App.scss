@@ -164,10 +164,18 @@ $padding-6xl: 7rem;
 
   }
 
+  h2 {
+    font-size: $font-size-xl;
+    color: $quinary-color;
+    font-weight: 600;
+    margin-bottom: $margin-base;
+
+  }
+
   p {
     font-size: $font-size-base;
     color: $text-color;
-    margin-bottom: 2rem;
+    margin: $margin-xs 0 $margin-xl 0;
   }
 
 }
