@@ -12,7 +12,7 @@ const numberOfDaysToAdd = 1;
 const date = today.setDate(today.getDate() + numberOfDaysToAdd);
 const defaultValue = new Date(date).toISOString().split('T')[0]
 
-const Form = ({ formData, setFormData }) => {
+const Form = ({ setFormData }) => {
   const navigate = useNavigate();
 
   const initialValues = {
@@ -157,7 +157,7 @@ const Form = ({ formData, setFormData }) => {
                 </div>
 
                 <div className="form-row">
-                  <label htmlFor="aeg">Kättesaamise kellaaeg (12-18)</label>
+                  <label htmlFor="aeg">Kättesaamise aeg (12-18)</label>
                   <input
                     type="time"
                     name="aeg"

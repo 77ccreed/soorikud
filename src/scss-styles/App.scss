@@ -302,11 +302,13 @@ $padding-6xl: 7rem;
     .form-grid {
       grid-template-columns: 1fr 1fr;
       grid-gap: 1rem;
+      align-items: center;
     }
 
 
     .form-row {
       width: 100%;
+      white-space: nowrap;
     }
   }
 }
