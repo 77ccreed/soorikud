@@ -319,6 +319,11 @@ $padding-6xl: 7rem;
   margin: $margin-base auto;
   //margin-top: 5rem;
   padding: 2rem;
+
+  h2 {
+    font-size: $font-size-2xl;
+    margin: $margin-base 0;
+  }
 }
 
 .tellimuse-andmed {
